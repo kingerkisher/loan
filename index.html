@@ -53,7 +53,7 @@
 
 
     <!-- ==== ABOUT US SECTION ==== -->
-    <section id="about" class="py-5" style="background-color: #ffffff;">
+    <section id="about" class="py-5 px-5" style="background-color: #ffffff;">
         <div class="container">
             <div class="row align-items-center g-4">
 
@@ -81,7 +81,7 @@
                             core values
                             that drive every decision we make.
                         </p>
-                        <a href="#apply" class="btn btn-primary btn-apply">Apply Now</a>
+                        <a href="#apply" class="btn-apply">Apply Now</a>
                     </div>
                 </div>
 
@@ -89,9 +89,7 @@
         </div>
     </section>
 
-
-
-
+    
     <!-- ==== LOANS SECTION ==== -->
     <section id="loans" class="py-5" style="background-color: #f9faff;">
         <div class="container">
@@ -172,6 +170,18 @@
                 </div>
 
             </div>
+            <div class="mt-3">
+                <div class="text-center">
+                    <a href="#apply" class="btn-apply">see more</a>
+
+                </div>
+                <p class="text-center mt-4">
+                    Can't find the loan that fits your needs? <a href="#contact"
+                        class="text-decoration-underline">Contact
+                        us</a>
+                    for personalized loan options.
+                </p>
+            </div>
         </div>
     </section>
 
@@ -242,13 +252,131 @@
     </section>
 
 
+    <section class="contact py-5" id="contact">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Get in Touch</h2>
+                <p class="section-subtitle">
+                    Have questions about our loan services? We’re here to help you every step of the way.
+                </p>
+            </div>
+
+            <div class="contact-content">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h5>Phone</h5>
+                            <p>+1 (800) 555-2378</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h5>Email</h5>
+                            <p>support@freedomloans.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h5>Address</h5>
+                            <p>77 Hillcrest Rd, Goffstown, NH 03045, USA</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required />
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="4" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-contact">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Google Map -->
+            <div class="map mt-5">
+                <iframe src="https://www.google.com/maps?q=77+Hillcrest+Rd,+Goffstown,+NH+03045,+USA&output=embed"
+                    width="100%" height="350" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+
+            </div>
+        </div>
+    </section>
 
 
+    <!-- ===== Footer Section ===== -->
+    <footer class="footer bg-primary text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row gy-4">
+                <!-- Company Info -->
+                <div class="col-lg-4 col-md-6">
+                    <a href=""><img src="images/zoomed.png" alt="" style="width: auto; height:100px;"></a>
+                    <p>Empowering your financial freedom with flexible loan solutions and trusted service.</p>
+                    <div class="d-flex gap-3 mt-3">
+                        <a href="#" class="text-white fs-5"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="footer-link">Home</a></li>
+                        <li><a href="#" class="footer-link">About Us</a></li>
+                        <li><a href="#" class="footer-link">Loans</a></li>
+                        <li><a href="#" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold mb-3">Our Services</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="footer-link">Personal Loans</a></li>
+                        <li><a href="#" class="footer-link">Business Loans</a></li>
+                        <li><a href="#" class="footer-link">Mortgage Loans</a></li>
+                        <li><a href="#" class="footer-link">Debt Consolidation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold mb-3">Contact Us</h6>
+                    <p><i class="bi bi-geo-alt-fill me-2"></i>77 Hillcrest Rd, Goffstown, NH 03045, USA</p>
+                    <p><i class="bi bi-telephone-fill me-2"></i>(603) 555-2145</p>
+                    <p><i class="bi bi-envelope-fill me-2"></i>support@freedomloan.com</p>
+                </div>
+            </div>
+
+            <hr class="my-4 text-white-50">
+
+            <!-- Copyright -->
+            <div class="text-center small">
+                <p class="mb-0">&copy; <span id="year"></span> Freedom Loan Services Corp. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
 
 
-
-
-    <section id="contact" style="height:100vh; padding:100px 20px;">Contact Section</section>
+    <!-- so that the year will always change automatically -->
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
 
 
     <script src="script.js"></script>
