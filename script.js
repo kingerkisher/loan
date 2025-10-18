@@ -1,723 +1,128 @@
-/* =========================================
-   ROOT COLORS & GLOBAL STYLES
-========================================= */
-:root {
-    --primary-blue: #0067b1;
-    --secondary-blue: #004c88;
-    --white: #ffffff;
-    --text-dark: #222222;
-    --transition: all 0.4s ease;
-    --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+console.log("✅ script.js loaded successfully");
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+// ==============================
+// NAVBAR SCROLL EFFECT & LOGO SWAP
+// ==============================
+window.addEventListener("scroll", handleScroll);
+window.addEventListener("load", handleScroll);
 
-body {
-    font-family: "Poppins", sans-serif;
-    color: var(--text-dark);
-    background-color: var(--white);
-    overflow-x: hidden;
-}
+function handleScroll() {
+    const navbar = document.querySelector(".navbar");
+    const scrollThreshold = 50;
 
-html {
-    scroll-behavior: smooth;
-}
-
-/* =========================================
-   NAVBAR STYLING
-========================================= */
-.custom-navbar {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    padding: 1rem 0;
-    background: transparent;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.nav-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Logo setup */
-.logo-img {
-    height: 70px;
-    width: auto;
-    padding: 0;
-    transition: opacity 0.4s ease;
-}
-
-.logo-dark {
-    display: none;
-}
-
-/* Brand text */
-.brand-text {
-    font-weight: 700;
-    font-size: 1.4rem;
-    color: var(--white);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: color 0.4s ease;
-}
-
-/* Navbar links */
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-/* Default navbar links (white) */
-.nav-link {
-    color: #ffffff;
-    /* white initially */
-    font-weight: 500;
-    text-decoration: none;
-    transition: color 0.3s ease, border-color 0.3s ease;
-    border-bottom: 2px solid transparent;
-    padding-bottom: 4px;
-}
-
-.nav-link:hover,
-.nav-link.active {
-    color: #ffffff;
-    /* hover/active white initially */
-    border-bottom: 2px solid #ffffff;
-}
-
-/* Apply Now button */
-.btn-apply {
-    background: var(--primary-blue);
-    color: var(--white);
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: transform 0.25s cubic-bezier(.2, .9, .2, 1), background-color 0.25s ease, color 0.25s ease;
-    transform: scale(1);
-    transform-origin: center;
-    will-change: transform;
-    display: inline-block;
-}
-
-.btn-apply:hover,
-.btn-apply:focus {
-    background: var(--secondary-blue);
-    color: var(--white);
-    transform: scale(1.05) translateY(-2px);
-    outline: none;
-}
-
-/* =========================================
-   NAVBAR ON SCROLL EFFECT
-========================================= */
-.navbar-scrolled {
-    background: var(--white);
-    box-shadow: var(--shadow-light);
-}
-
-/* Navbar links turn black on scroll */
-.navbar-scrolled .nav-link {
-    color: #000000;
-    /* black on scroll */
-}
-
-.navbar-scrolled .nav-link:hover,
-.navbar-scrolled .nav-link.active {
-    color: #000000;
-    /* hovered/active stays black */
-    border-bottom: 2px solid #000000;
-}
-
-/* Brand text color on scroll */
-.navbar-scrolled .brand-text {
-    color: var(--primary-blue);
-}
-
-/* Logo swap on scroll */
-.navbar-scrolled .logo-light {
-    display: none;
-}
-
-.navbar-scrolled .logo-dark {
-    display: block;
-}
-
-/* =========================================
-   HERO SECTION STYLING
-========================================= */
-.hero-section {
-    height: 100vh;
-    background: url("images/imgi_83_681356fcd1e49c87bb292e55_hero-n-m-p-2000.jpg") no-repeat center right / cover;
-    display: flex;
-    align-items: center;
-    position: relative;
-    padding-top: 80px;
-    color: var(--white);
-    overflow: hidden;
-}
-
-/* Gradient overlay (diagonal from bottom-right to top-left) */
-.hero-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to left top,
-            rgba(0, 51, 102, 0.85) 0%,
-            rgba(0, 51, 102, 0.5) 50%,
-            rgba(0, 51, 102, 0) 100%);
-    z-index: 1;
-}
-
-/* Hero content */
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 700px;
-    padding-left: 5%;
-    text-align: left;
-}
-
-.hero-title {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: var(--white);
-}
-
-.hero-subtitle {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-    color: #f1f1f1;
-}
-
-/* Hero button */
-.btn-hero {
-    background: var(--white);
-    color: var(--primary-blue);
-    padding: 12px 35px;
-    border-radius: 50px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: var(--transition);
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
-}
-
-.btn-hero:hover {
-    background: var(--secondary-blue);
-    color: var(--white);
-    transform: translateY(-2px);
-}
-
-/* =========================================
-   RESPONSIVE DESIGN
-========================================= */
-@media (max-width: 992px) {
-    .hero-title {
-        font-size: 2.5rem;
+    // Toggle navbar-scrolled class
+    if (window.scrollY > scrollThreshold) {
+        navbar.classList.add("navbar-scrolled");
+    } else {
+        navbar.classList.remove("navbar-scrolled");
     }
 
-    .hero-subtitle {
-        font-size: 1rem;
-    }
+    // Highlight active nav link
+    const sections = document.querySelectorAll("section[id]");
+    const scrollPos = window.scrollY + navbar.offsetHeight + 5;
 
-    .nav-links {
-        gap: 15px;
-    }
+    sections.forEach(section => {
+        const top = section.offsetTop;
+        const bottom = top + section.offsetHeight;
+        const id = section.getAttribute("id");
+        const navLink = document.querySelector(`.nav-link[href="#${id}"]`);
 
-    .logo-img {
-        height: 50px;
-    }
+        if (scrollPos >= top && scrollPos < bottom) {
+            document.querySelectorAll(".nav-link").forEach(link => link.classList.remove("active"));
+            if (navLink) navLink.classList.add("active");
+        }
+    });
+
+    // Animate elements in view
+    animateElementsInView();
 }
 
-@media (max-width: 768px) {
-    .hero-section {
-        background-position: center;
-        text-align: center;
-    }
+// ==============================
+// SMOOTH SCROLL
+// ==============================
+document.querySelectorAll('.nav-link, .btn-hero, .btn-apply').forEach(link => {
+    link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+            window.scrollTo({
+                top: targetSection.offsetTop - document.querySelector(".navbar").offsetHeight,
+                behavior: "smooth"
+            });
+        }
+    });
+});
 
-    .hero-content {
-        padding-left: 0;
-        max-width: 90%;
-        margin: auto;
-        text-align: center;
-    }
+// ==============================
+// SCROLL ANIMATIONS
+// ==============================
+const animateElements = document.querySelectorAll('.animate-left, .animate-right');
 
-    .hero-title {
-        font-size: 2rem;
-    }
+function animateElementsInView() {
+    const triggerBottom = window.innerHeight * 0.85;
 
-    .hero-subtitle {
-        font-size: 0.95rem;
-    }
+    animateElements.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+
+        if (elementTop < triggerBottom && !el.classList.contains('in-view')) {
+            // If text wrapper, stagger paragraphs
+            if (el.classList.contains('animate-right')) {
+                const paragraphs = el.querySelectorAll('.about-text, .section-title');
+                paragraphs.forEach((p, i) => {
+                    setTimeout(() => p.classList.add('in-view'), i * 200);
+                });
+            }
+            el.classList.add('in-view'); // for image or single element
+        }
+    });
 }
 
-/* Loan Card */
-.loan-card {
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 103, 177, 0.15);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    background-color: #ffffff;
-    overflow: hidden;
-    position: relative;
+// Initial check
+document.addEventListener("DOMContentLoaded", animateElementsInView);
+
+const testimonials = document.querySelectorAll('.testimonial-card');
+const indicatorsContainer = document.querySelector('.testimonial-indicators');
+
+let currentIndex = 0;
+const intervalTime = 5000;
+
+// Create dots
+testimonials.forEach((_, index) => {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    if (index === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => {
+        showTestimonial(index);
+        resetInterval();
+    });
+    indicatorsContainer.appendChild(dot);
+});
+
+const dots = document.querySelectorAll('.dot');
+
+// Show testimonial by index
+function showTestimonial(index) {
+    testimonials.forEach((testimonial, i) => {
+        testimonial.classList.toggle('active', i === index);
+        dots[i].classList.toggle('active', i === index);
+    });
+    currentIndex = index;
 }
 
-/* Lift the card on hover */
-.loan-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0, 103, 177, 0.25);
-}
+// Autoplay
+let testimonialInterval = setInterval(() => {
+    let nextIndex = (currentIndex + 1) % testimonials.length;
+    showTestimonial(nextIndex);
+}, intervalTime);
 
-/* Card Header with sliding background */
-.loan-card .card-header {
-    background-color: transparent;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    padding: 1rem 0;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Sliding pseudo-element */
-.loan-card .card-header::before {
-    content: "";
-    position: absolute;
-    top: -100%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #0067b1;
-    /* primary blue */
-    z-index: 0;
-    transition: top 0.4s ease;
-}
-
-/* Header title */
-.loan-card .card-header .card-title {
-    color: #004185;
-    position: relative;
-    z-index: 1;
-    margin: 0;
-    font-size: 1.25rem;
-    font-weight: 600;
-    transition: color 0.4s ease;
-}
-
-/* Header slide effect on hover */
-.loan-card:hover .card-header::before {
-    top: 0;
-}
-
-.loan-card:hover .card-header .card-title {
-    color: #ffffff;
-}
-
-/* Card Body */
-.loan-card .card-body {
-    padding: 1.5rem;
-}
-
-/* Loan Details List */
-.loan-card .loan-details li {
-    font-size: 0.95rem;
-    padding: 4px 0;
-}
-
-.loan-card .loan-details li strong {
-    color: #004185;
-    width: 140px;
-    display: inline-block;
-}
-
-/* Apply Button */
-.loan-card .btn-apply {
-    padding: 8px 25px;
-    font-weight: 600;
-    border-radius: 50px;
-    transition: all 0.3s ease, transform 0.3s ease;
-}
-
-/* Button pop effect on hover */
-.loan-card:hover .btn-apply {
-    background-color: #004c88;
-    /* secondary blue */
-    color: #ffffff;
-    transform: scale(1.05) translateY(-2px);
-}
-
-#loans .section-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #004185;
-    /* primary blue */
-    text-align: center;
-    margin-bottom: 2rem;
+// Reset interval if user clicks dot
+function resetInterval() {
+    clearInterval(testimonialInterval);
+    testimonialInterval = setInterval(() => {
+        let nextIndex = (currentIndex + 1) % testimonials.length;
+        showTestimonial(nextIndex);
+    }, intervalTime);
 }
 
 
-/* Responsive Adjustments */
-
-@media (max-width: 768px) {
-    #loans .row {
-        display: flex;
-        flex-wrap: nowrap;
-        /* keep cards in a line */
-        overflow-x: auto;
-        /* enable horizontal scroll */
-        gap: 1rem;
-        padding-bottom: 1rem;
-        -webkit-overflow-scrolling: touch;
-        /* smooth scrolling on iOS */
-
-        scroll-snap-type: x mandatory;
-        /* enable snap on X-axis */
-    }
-
-    #loans .col-md-4 {
-        flex: 0 0 80%;
-        /* each card width */
-        max-width: 80%;
-        scroll-snap-align: start;
-        /* snap each card at start */
-    }
-
-    /* Optional: hide default scrollbar */
-    #loans .row::-webkit-scrollbar {
-        height: 8px;
-    }
-
-    #loans .row::-webkit-scrollbar-thumb {
-        background-color: rgba(0, 103, 177, 0.3);
-        border-radius: 4px;
-    }
-}
-
-
-
-/* ABOUT US SECTION */
-/* ABOUT US SECTION */
-#about .section-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #0067b1;
-    /* primary blue */
-}
-
-#about .about-text {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: #222222;
-}
-
-#about .btn-apply {
-    padding: 10px 30px;
-    font-weight: 600;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-}
-
-#about .btn-apply:hover {
-    background-color: #004c88;
-    /* secondary blue */
-    color: #ffffff;
-    transform: translateY(-2px);
-}
-
-/* Image styling */
-#about img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-/* Scroll animations */
-.animate-left {
-    opacity: 0;
-    transform: translateX(-50px);
-    transition: all 0.8s ease-out;
-}
-
-.animate-right {
-    opacity: 0;
-    transform: translateX(50px);
-    transition: all 0.8s ease-out;
-}
-
-.animate-left.in-view,
-.animate-right.in-view {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-/* Image hover effect */
-#about img:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 20px rgba(0, 103, 177, 0.2);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    #about .section-title {
-        text-align: center;
-    }
-
-    #about .about-text {
-        text-align: center;
-    }
-
-    #about .btn-apply {
-        display: block;
-        margin: 0 auto;
-    }
-
-    #about img {
-        margin-bottom: 1.5rem;
-    }
-}
-
-.testimonials {
-    background-color: var(--light-gray);
-    padding: 6rem 0;
-}
-
-.testimonials .section-title {
-    font-size: 2.2rem;
-    color: var(--primary-blue);
-}
-
-.testimonials .section-subtitle {
-    font-family: 'Open Sans', sans-serif;
-    color: var(--dark-gray);
-    font-size: 1rem;
-    max-width: 700px;
-    margin: 0 auto 2.5rem auto;
-}
-
-.testimonial-wrapper {
-    position: relative;
-    max-width: 500px;
-    margin: 0 auto;
-    height: auto;
-}
-
-.testimonial-card {
-    background-color: var(--white);
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    padding: 2rem;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    transition: opacity 1s ease;
-}
-
-.testimonial-card.active {
-    opacity: 1;
-    position: relative;
-}
-
-.testimonial-text {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 0.95rem;
-    color: var(--dark-gray);
-    line-height: 1.5;
-}
-
-.testimonial-author h5 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    color: var(--primary-blue);
-    margin-bottom: 0;
-}
-
-.testimonial-author small {
-    color: var(--dark-gray);
-}
-
-/* Dots / indicators */
-.testimonial-indicators {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.testimonial-indicators .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: var(--primary-blue);
-    opacity: 0.5;
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-}
-
-.testimonial-indicators .dot.active {
-    opacity: 1;
-}
-
-.testimonial-photo {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid var(--light-blue);
-    display: block;
-    margin: 0 auto 1rem auto;
-}
-
-.testimonial-stars {
-    color: #FFD700;
-    /* gold stars */
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-}
-
-/* ============================= */
-/* CONTACT SECTION */
-/* ============================= */
-.contact {
-    background: #f8f9fa;
-}
-
-.contact .section-title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--primary-color, #004aad);
-}
-
-.contact .section-subtitle {
-    color: #555;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: start;
-}
-
-.contact-info .info-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.contact-info i {
-    background: var(--primary-color, #004aad);
-    color: white;
-    font-size: 1.2rem;
-    padding: 12px;
-    border-radius: 50%;
-}
-
-.contact-info h5 {
-    font-weight: 600;
-    margin: 0;
-}
-
-.contact-info p {
-    margin: 2px 0 0;
-    color: #555;
-}
-
-/* Form */
-.contact-form .form-group {
-    margin-bottom: 15px;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    outline: none;
-    transition: 0.3s;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    border-color: var(--primary-color, #004aad);
-}
-
-.btn-contact {
-    background: var(--primary-color, #004aad);
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background 0.3s;
-}
-
-.btn-contact:hover {
-    background: #003a87;
-}
-
-/* Map */
-.map iframe {
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .contact-info {
-        text-align: left;
-    }
-}
-
-
-
-/* footer styling */
-.footer {
-    background: linear-gradient(135deg, #004a91 0%, #007bff 100%);
-    color: #fff;
-}
-
-.footer-link {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-link:hover {
-    color: #ffffff;
-    text-decoration: underline;
-}
-
-.footer hr {
-    border-color: rgba(255, 255, 255, 0.3);
-}
